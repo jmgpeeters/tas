@@ -73,10 +73,10 @@ int slowpath_main(void)
   }
 
   /* initialize kni */
-  if (kni_init()) {
-    fprintf(stderr, "kni_init failed\n");
-    return EXIT_FAILURE;
-  }
+  //if (kni_init()) {
+  //  fprintf(stderr, "kni_init failed\n");
+  //  return EXIT_FAILURE;
+  //}
 
   /* initialize routing subsystem */
   if (routing_init()) {
@@ -123,7 +123,7 @@ int slowpath_main(void)
     n += nicif_poll();
     n += cc_poll(cur_ts);
     n += appif_poll();
-    n += kni_poll();
+    //n += kni_poll();
     tcp_poll();
     util_timeout_poll_ts(&timeout_mgr, cur_ts);
 
